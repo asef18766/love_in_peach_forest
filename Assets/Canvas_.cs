@@ -35,7 +35,7 @@ public class Canvas_ : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        dialog_bg.transform.position = new Vector3(-1000, -1000, 0);
+        //dialog_bg.transform.position = new Vector3(-1000, -1000, 0);
         show = false;
         index = 0;
     }

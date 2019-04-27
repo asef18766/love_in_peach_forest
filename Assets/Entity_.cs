@@ -135,7 +135,7 @@ public class Entity_ : MonoBehaviour {
 					case "npc":
 						//Debug.Log("let's having talk.");
 						indicator.transform.position=r[u].transform.position;
-						if(Input.GetKey(KeyCode.Z))
+						if(Input.GetKeyDown(KeyCode.Z))
 						{
 							cur_npc_index=findNearestNPC();
 							Debug.Log("interact npc id:"+cur_npc_index);
