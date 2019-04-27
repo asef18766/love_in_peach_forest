@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class Entity_ : MonoBehaviour {
-
 	// Use this for initialization
 	public float detect_radius=40;
 	int cur_npc_index=0;
@@ -14,7 +13,6 @@ public class Entity_ : MonoBehaviour {
 	Npc_[] interactable_NPC;
 	public List<Item_> inventory;
 	public float prefer=0.0f;
-	bool istalking=false;
 	public Canvas_ canvas_;
 	void Start () {
 		tf=GetComponent<Transform>();
@@ -24,7 +22,7 @@ public class Entity_ : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		if(!istalking)
+		if(!Canvas_.show)
 		{
 			move(playerControler());
 			interact();
@@ -37,12 +35,7 @@ public class Entity_ : MonoBehaviour {
 	void talk()
 	{
 		if(Input.GetKeyDown(KeyCode.Z))
-		{
-			Debug.Log("update text");
 			interactable_NPC[cur_npc_index].interact();
-		}
-			
-		istalking=Canvas_.show;
 	}
 	void spirite_update()
 	{
@@ -147,7 +140,6 @@ public class Entity_ : MonoBehaviour {
 							Debug.Log("interact npc id:"+cur_npc_index);
 							Debug.Log("interact npc size:"+interactable_NPC.Length);
 							interactable_NPC[cur_npc_index].interact();
-							istalking=true;
 						}
 						break;
 					case "item":

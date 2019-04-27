@@ -247,8 +247,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - {fileID: 1113685429}
+  - {fileID: 1637751904}
   id: 
   canvas_: {fileID: 296897574}
+  player: {fileID: 1893633047}
 --- !u!1 &60288623
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,6 +712,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tar: {fileID: 1893633046}
+--- !u!1 &1637751903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1637751905}
+  - component: {fileID: 1637751904}
+  m_Layer: 0
+  m_Name: testEvent (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1637751904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637751903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3199d4ec3468c4bf5a855533f3490a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogs:
+  - hello
+  - this is test2
+  rejectDialogs: []
+  mood: 0
+  take: {fileID: 0}
+  send: {fileID: 0}
+  reqMood: 0
+  day: 0
+  askIndex: 0
+  player: {fileID: 1893633047}
+  canvas: {fileID: 296897574}
+--- !u!4 &1637751905
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637751903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 413.10608, y: 241.61569, z: 8.975666}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1893633046
 GameObject:
   m_ObjectHideFlags: 0

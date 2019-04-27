@@ -31,16 +31,19 @@ public class Npc_ : MonoBehaviour {
                 }
             }
         }
-
+        Debug.Log("fuck you"+(ev==null));
         if (ev != null)
-        {
-            if (ev.Dialog())//the event is over
+        {Debug.Log("AAAAAAAAAAAAAAAAAAAAAAA");
+                    Debug.Log("over:"+ev.Dialog());
+            if (!Canvas_.show)//the event is over
             {
+				Debug.Log("b4 eventlist length:"+data.Count);
                 data.Remove(ev);
+				Debug.Log("aft eventlist length:"+data.Count);
                 ev = null;
             }
         }
         else
-            print("No usable event");
+            Debug.Log("No usable event");
     }
 }

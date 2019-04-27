@@ -8,14 +8,14 @@ public class Canvas_ : MonoBehaviour
     public static bool show;
     public GameObject dialog_bg;
     public UnityEngine.UI.Text text;
-    int index;
+    int index=0;
 
     public void Dialogs(string[] s)
     {
         if (!show)
         {
             show = true;
-            dialog_bg.transform.position = new Vector3(0, 0, 0);
+            //dialog_bg.transform.position = new Vector3(0, 0, 0);
         }
 
         if (index >= s.Length)
@@ -23,10 +23,11 @@ public class Canvas_ : MonoBehaviour
             index = 0;
             show = false;
             text.text = "";
-            dialog_bg.transform.position = new Vector3(-1000, -1000, 0);
+            //dialog_bg.transform.position = new Vector3(-1000, -1000, 0);
             return;
         }
-
+        Debug.Log("index:"+index);
+        Debug.Log("show:"+show);
         text.text = s[index];
         index++;
     }
