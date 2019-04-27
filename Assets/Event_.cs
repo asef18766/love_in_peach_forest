@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [AddComponentMenu("C# Script")]
-public class Event_ : ScriptableObject
+public class Event_ : MonoBehaviour
 {
 
     public string[] dialogs;
@@ -22,7 +22,7 @@ public class Event_ : ScriptableObject
     public void Dialog()
     {
         canvas.Dialogs(done ? dialogs : rejectDialogs);
-        if (!canvas.show)
+        if (!Canvas_.show)
         {
             //remove event
         }
