@@ -12,6 +12,8 @@ public class Entity_ : MonoBehaviour {
 	Vector2 moving_dir;
 	public enum  walk_dir{UP,DOWN,LEFT,RIGHT};
 	Npc_[] interactable_NPC;
+	public List<Item_> inventory;
+	public float prefer=0.0f;
 	void Start () {
 		tf=GetComponent<Transform>();
 		interactable_NPC=FindObjectsOfType<Npc_>();
