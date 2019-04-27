@@ -19,17 +19,12 @@ public class Event_ : MonoBehaviour
     int index = 0;
     bool done = true;
 
-    public bool Dialog()
+    public void Dialog()
     {
         canvas.Dialogs(done ? dialogs : rejectDialogs);
-        if (!Canvas_.show)
-        {
-            return true;
-        }
 
         index++;
         if (index == askIndex) done = Accept();
-        return false;
     }
 
     public bool Accept()

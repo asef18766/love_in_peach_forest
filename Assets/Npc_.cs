@@ -34,6 +34,8 @@ public class Npc_ : MonoBehaviour {
 
         if (ev != null)
         {
+            ev.Dialog();
+
             if (!Canvas_.show)//the event is over
             {
                 data.Remove(ev);
