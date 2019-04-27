@@ -1,12 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Entity_ : MonoBehaviour {
 
 	// Use this for initialization
 	public float detect_radius=40;
-	public GameObject sp;
+	public GameObject indicator;
 	
 	Transform tf;
 	Vector2 moving_dir;
@@ -30,10 +30,10 @@ public class Entity_ : MonoBehaviour {
 		float ang=(float)(Math.Acos(v2.normalized.x)*360/(Math.PI*2));
 		if(v2.y<0)
 			ang=-ang;
-		Debug.Log("ang:"+ang);
+		//Debug.Log("ang:"+ang);
 		ang=(ang+360)%360;
 		tf.rotation=Quaternion.Euler(0,0,ang);
-		Debug.Log(v2);
+		//Debug.Log(v2);
 	}
 	walk_dir[] playerControler()
 	{
@@ -90,13 +90,16 @@ public class Entity_ : MonoBehaviour {
 	void interact()
 	{
 		Collider2D[] r=Physics2D.OverlapCircleAll(tf.position,detect_radius);
+		Debug.Log("collide with "+r.Length+" objects");
 		for( int u=0 ; u!=r.Length ; ++u )
 			if(r[u])
+			{
+				Debug.Log("obj has tag:"+r[u].tag);
 				switch(r[u].tag)
 				{
 					case "enemy":
-						//Debug.Log("enemy spotted.");
-						sp.transform.position=r[u].transform.position;
+						Debug.Log("enemy spotted.");
+						indicator.transform.position=r[u].transform.position;
 						break;
 					case "npc":
 						Debug.Log("let's having talk.");
@@ -105,8 +108,7 @@ public class Entity_ : MonoBehaviour {
 						Debug.Log("something is on the floor.");
 						break;
 				}
-		
-		if(r.Length==1)
-			sp.transform.position=tf.position;
+			}
+				
 	}
 }
