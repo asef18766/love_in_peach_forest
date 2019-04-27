@@ -5,7 +5,7 @@ using UnityEngine;
 public class Canvas_ : MonoBehaviour
 {
 
-    public bool show;
+    public static bool show;
     public GameObject dialog_bg;
     public UnityEngine.UI.Text text;
     int index;

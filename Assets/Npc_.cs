@@ -5,6 +5,7 @@ using UnityEngine;
 public class Npc_ : MonoBehaviour {
 	public List<Event_> data;
 	public string id;
+	public Canvas_ canvas_;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,8 +14,9 @@ public class Npc_ : MonoBehaviour {
 	void Update () {
 		
 	}
-	public string interact()
+	public void interact()
 	{
-		return "";
+		string[] test_str=new string[]{"123","456"};
+		canvas_.Dialogs(test_str);
 	}
 }

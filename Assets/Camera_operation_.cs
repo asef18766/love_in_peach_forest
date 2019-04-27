@@ -17,7 +17,7 @@ public class Camera_operation_ : MonoBehaviour {
 	}
 	void camera_follow()
 	{
-		GetComponent<Transform>().position=new Vector3(tar.GetComponent<Transform>().position.x,
+		tf.position=new Vector3(tar.GetComponent<Transform>().position.x,
 												   	   tar.GetComponent<Transform>().position.y,
 														   GetComponent<Transform>().position.z);
 	}

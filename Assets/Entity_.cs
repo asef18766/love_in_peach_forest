@@ -6,14 +6,16 @@ public class Entity_ : MonoBehaviour {
 
 	// Use this for initialization
 	public float detect_radius=40;
+	int cur_npc_index=0;
 	public GameObject indicator;
-	
 	Transform tf;
 	Vector2 moving_dir;
 	public enum  walk_dir{UP,DOWN,LEFT,RIGHT};
 	Npc_[] interactable_NPC;
 	public List<Item_> inventory;
 	public float prefer=0.0f;
+	bool istalking=false;
+	public Canvas_ canvas_;
 	void Start () {
 		tf=GetComponent<Transform>();
 		interactable_NPC=FindObjectsOfType<Npc_>();
@@ -21,9 +23,26 @@ public class Entity_ : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		move(playerControler());
-		interact();
+		
+		if(!istalking)
+		{
+			move(playerControler());
+			interact();
+		}
+		else
+			talk();
+		
 		spirite_update();
+	}
+	void talk()
+	{
+		if(Input.GetKeyDown(KeyCode.Z))
+		{
+			Debug.Log("update text");
+			interactable_NPC[cur_npc_index].interact();
+		}
+			
+		istalking=Canvas_.show;
 	}
 	void spirite_update()
 	{
@@ -107,23 +126,28 @@ public class Entity_ : MonoBehaviour {
 	void interact()
 	{
 		Collider2D[] r=Physics2D.OverlapCircleAll(tf.position,detect_radius);
-		Debug.Log("collide with "+r.Length+" objects");
+		//Debug.Log("collide with "+r.Length+" objects");
 		for( int u=0 ; u!=r.Length ; ++u )
 			if(r[u])
 			{
-				Debug.Log("obj has tag:"+r[u].tag);
+				if(r[u].tag!="Player");
+					//Debug.Log("obj has tag:"+r[u].tag);
 				switch(r[u].tag)
 				{
 					case "enemy":
-						Debug.Log("enemy spotted.");
+						//Debug.Log("enemy spotted.");
 						indicator.transform.position=r[u].transform.position;
 						break;
 					case "npc":
-						Debug.Log("let's having talk.");
+						//Debug.Log("let's having talk.");
+						indicator.transform.position=r[u].transform.position;
 						if(Input.GetKey(KeyCode.Z))
 						{
-							int index=findNearestNPC();
-							interactable_NPC[index].interact();
+							cur_npc_index=findNearestNPC();
+							Debug.Log("interact npc id:"+cur_npc_index);
+							Debug.Log("interact npc size:"+interactable_NPC.Length);
+							interactable_NPC[cur_npc_index].interact();
+							istalking=true;
 						}
 						break;
 					case "item":

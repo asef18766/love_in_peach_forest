@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - debug_obj
+  - npc
   layers:
   - Default
   - TransparentFX
