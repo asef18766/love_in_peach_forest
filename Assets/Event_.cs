@@ -22,7 +22,7 @@ public class Event_ : ScriptableObject
     public void Dialog()
     {
         canvas.Dialogs(done ? dialogs : rejectDialogs);
-        if (!canvas.show)
+        if (!Canvas_.show)
         {
             //remove event
         }
