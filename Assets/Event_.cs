@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [AddComponentMenu("C# Script")]
-public class Event_ : ScriptableObject
+public class Event_ : MonoBehaviour
 {
 
     public string[] dialogs;
