@@ -41,7 +41,6 @@ public class Event_ : MonoBehaviour
             if (send != null) player.inventory.Add(send);
             return true;
         }
-
         return false;
     }
 

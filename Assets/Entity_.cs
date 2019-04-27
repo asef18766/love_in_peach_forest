@@ -14,6 +14,7 @@ public class Entity_ : MonoBehaviour {
 	public List<Item_> inventory;
 	public float prefer=0.0f;
 	public Canvas_ canvas_;
+	public int day=0;
 	void Start () {
 		tf=GetComponent<Transform>();
 		interactable_NPC=FindObjectsOfType<Npc_>();
@@ -144,6 +145,10 @@ public class Entity_ : MonoBehaviour {
 						break;
 					case "item":
 						Debug.Log("something is on the floor.");
+						break;
+					case "diary":
+						if(Input.GetKeyDown(KeyCode.Z))
+							day++;
 						break;
 				}
 			}
