@@ -11,9 +11,10 @@ public class Entity_ : MonoBehaviour {
 	Transform tf;
 	Vector2 moving_dir;
 	public enum  walk_dir{UP,DOWN,LEFT,RIGHT};
-	
+	Npc_[] interactable_NPC;
 	void Start () {
 		tf=GetComponent<Transform>();
+		interactable_NPC=FindObjectsOfType<Npc_>();
 	}
 	
 	// Update is called once per frame
@@ -87,6 +88,20 @@ public class Entity_ : MonoBehaviour {
 		moving_dir.y=tf.position.y-y;
 		//Debug.Log(dir);
 	}
+	int findNearestNPC()
+	{
+		int index=0;
+		for(int i=1;i<interactable_NPC.Length;++i)
+		{
+			double r1=Math.Sqrt(Math.Pow(tf.transform.position.x-interactable_NPC[index].transform.position.x,2)+
+							    Math.Pow(tf.transform.position.y-interactable_NPC[index].transform.position.y,2));
+			double r2=Math.Sqrt(Math.Pow(tf.transform.position.x-interactable_NPC[i].transform.position.x,2)+
+							    Math.Pow(tf.transform.position.y-interactable_NPC[i].transform.position.y,2));
+			if(r1>r2)
+				index=i;
+		}
+		return index;
+	}
 	void interact()
 	{
 		Collider2D[] r=Physics2D.OverlapCircleAll(tf.position,detect_radius);
@@ -103,6 +118,11 @@ public class Entity_ : MonoBehaviour {
 						break;
 					case "npc":
 						Debug.Log("let's having talk.");
+						if(Input.GetKey(KeyCode.Z))
+						{
+							int index=findNearestNPC();
+							interactable_NPC[index].interact();
+						}
 						break;
 					case "item":
 						Debug.Log("something is on the floor.");
