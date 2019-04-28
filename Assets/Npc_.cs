@@ -24,7 +24,7 @@ public class Npc_ : MonoBehaviour {
         {
             foreach (Event_ e in data)
             {
-                if (player.prefer >= e.reqMood)
+                if (player.prefer >= e.reqMood && player.village_prefer >= e.village_reqMood)
                 {
                     ev = e;
                     break;

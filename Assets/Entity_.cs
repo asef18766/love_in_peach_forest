@@ -13,6 +13,7 @@ public class Entity_ : MonoBehaviour {
 	Npc_[] interactable_NPC;
 	public List<Item_> inventory;
 	public float prefer=0.0f;
+	public float village_prefer=0.0f;
 	public Canvas_ canvas_;
 	public int day=0;
 	void Start () {
@@ -124,8 +125,6 @@ public class Entity_ : MonoBehaviour {
 		for( int u=0 ; u!=r.Length ; ++u )
 			if(r[u])
 			{
-				if(r[u].tag!="Player");
-					//Debug.Log("obj has tag:"+r[u].tag);
 				switch(r[u].tag)
 				{
 					case "enemy":

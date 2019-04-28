@@ -9,9 +9,11 @@ public class Event_ : MonoBehaviour
     public string[] dialogs;
     public string[] rejectDialogs;
     public float mood;
+    public float viliage_mood;
     public Item_ take;
     public Item_ send;
     public float reqMood;
+    public float village_reqMood;
     public int day;
     public int askIndex;//問句是第幾句，set to -1 if you don't want to as
     public Entity_ player;
@@ -36,6 +38,7 @@ public class Event_ : MonoBehaviour
         {
             if (take != null) player.inventory.Remove(take);
             player.prefer += mood;
+            player.village_prefer+=viliage_mood;
             if (send != null) player.inventory.Add(send);
             return true;
         }
