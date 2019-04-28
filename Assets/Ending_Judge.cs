@@ -14,6 +14,13 @@ public class Ending_Judge : MonoBehaviour {
 	void judge()
 	{
 		Entity_ player=FindObjectOfType<Entity_>();
-		
+		if(player.prefer==50)
+		{
+			Debug.Log("ending!");
+			while(true)
+			{
+				;
+			}
+		}
 	}
 }

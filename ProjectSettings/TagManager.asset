@@ -8,6 +8,7 @@ TagManager:
   - debug_obj
   - npc
   - diary
+  - teleporter
   layers:
   - Default
   - TransparentFX
