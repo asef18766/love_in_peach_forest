@@ -147,6 +147,7 @@ public class Entity_ : MonoBehaviour {
 						Debug.Log("something is on the floor.");
 						break;
 					case "diary":
+						indicator.transform.position=r[u].transform.position;
 						if(Input.GetKeyDown(KeyCode.Z))
 							day++;
 						break;
