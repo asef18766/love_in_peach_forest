@@ -29,7 +29,7 @@ public class Event_ : MonoBehaviour
 
     public bool Accept()
     {
-        if (take == null || player.inventory.Contains(take))
+        if ((take == null || player.inventory.Contains(take)) && Input.GetKey("z"))//任務成功
         {
             if (take != null) player.inventory.Remove(take);
             player.prefer += mood;
