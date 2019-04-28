@@ -26,8 +26,6 @@ public class Canvas_ : MonoBehaviour
             //dialog_bg.transform.position = new Vector3(-1000, -1000, 0);
             return;
         }
-        Debug.Log("index:"+index);
-        Debug.Log("show:"+show);
         text.text = s[index];
         index++;
     }
