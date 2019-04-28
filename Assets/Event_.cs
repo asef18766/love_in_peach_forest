@@ -47,8 +47,6 @@ public class Event_ : MonoBehaviour
 
     public void Init()
     {
-        dialogs[askIndex] += " (Z: 接受, X: 反對)";
-
         string[] s = new string[askIndex +1+ rejectDialogs.Length];
         rejectDialogs.CopyTo(s, askIndex+1);
         rejectDialogs = s;

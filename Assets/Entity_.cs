@@ -6,7 +6,6 @@ public class Entity_ : MonoBehaviour {
 	// Use this for initialization
 	public float detect_radius=40;
 	int cur_npc_index=0;
-	public GameObject indicator;
 	Transform tf;
 	Vector2 moving_dir;
 	public enum  walk_dir{UP,DOWN,LEFT,RIGHT};
@@ -134,11 +133,9 @@ public class Entity_ : MonoBehaviour {
 				{
 					case "enemy":
 						//Debug.Log("enemy spotted.");
-						indicator.transform.position=r[u].transform.position;
 						break;
 					case "npc":
 						//Debug.Log("let's having talk.");
-						indicator.transform.position=r[u].transform.position;
 						if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.X))
 						{
 							cur_npc_index=findNearestNPC();
@@ -151,7 +148,6 @@ public class Entity_ : MonoBehaviour {
 						Debug.Log("something is on the floor.");
 						break;
 					case "diary":
-						indicator.transform.position=r[u].transform.position;
 						if(Input.GetKeyDown(KeyCode.Z))
 							day++;
 						break;
