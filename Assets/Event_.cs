@@ -13,7 +13,7 @@ public class Event_ : MonoBehaviour
     public Item_ send;
     public float reqMood;
     public int day;
-    public int askIndex;//set to 0 if you don't want to ask
+    public int askIndex;//問句是第幾句，set to -1 if you don't want to as
     public Entity_ player;
     public Canvas_ canvas;
     int index = 0;
@@ -21,10 +21,13 @@ public class Event_ : MonoBehaviour
 
     public void Dialog()
     {
+        if (index == 0) Init();
+        Debug.Log(dialogs[0]);
+
+        if (index - 1 == askIndex) done = Accept();
         canvas.Dialogs(done ? dialogs : rejectDialogs);
 
         index++;
-        if (index == askIndex) done = Accept();
     }
 
     public bool Accept()
@@ -39,10 +42,12 @@ public class Event_ : MonoBehaviour
         return false;
     }
 
-    public void Awake()
+    public void Init()
     {
-        string[] s = new string[askIndex + rejectDialogs.Length];
-        rejectDialogs.CopyTo(s, askIndex);
+        dialogs[askIndex] += " (Z: 接受, X: 反對)";
+
+        string[] s = new string[askIndex +1+ rejectDialogs.Length];
+        rejectDialogs.CopyTo(s, askIndex+1);
         rejectDialogs = s;
     }
 }
