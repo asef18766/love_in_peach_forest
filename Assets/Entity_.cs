@@ -8,6 +8,7 @@ public class Entity_ : MonoBehaviour {
 	int cur_npc_index=0;
 	public GameObject indicator;
     public Inventory_ inv;
+    public End_ end;
     Transform tf;
 	Vector2 moving_dir;
 	public enum  walk_dir{UP,DOWN,LEFT,RIGHT};
@@ -41,6 +42,8 @@ public class Entity_ : MonoBehaviour {
         {
             inv.ShowHide(this);
         }
+        if (Input.GetKeyDown(KeyCode.F))
+            end.Show(2);
 	}
 	void talk()
 	{
