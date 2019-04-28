@@ -16,9 +16,11 @@ public class Entity_ : MonoBehaviour {
 	public float village_prefer=0.0f;
 	public Canvas_ canvas_;
 	public int day=0;
+	Animator animation_controller;
 	void Start () {
 		tf=GetComponent<Transform>();
 		interactable_NPC=FindObjectsOfType<Npc_>();
+		animation_controller=GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -49,7 +51,6 @@ public class Entity_ : MonoBehaviour {
 			ang=-ang;
 		//Debug.Log("ang:"+ang);
 		ang=(ang+360)%360;
-		tf.rotation=Quaternion.Euler(0,0,ang);
 		//Debug.Log(v2);
 	}
 	walk_dir[] playerControler()
@@ -58,21 +59,25 @@ public class Entity_ : MonoBehaviour {
 		int element=0;
 		if(Input.GetKey(KeyCode.A))
 		{
+			animation_controller.SetInteger("state",3);
 			ret[element]=walk_dir.LEFT;
 			element++;
 		}
 		if(Input.GetKey(KeyCode.W))
 		{
+			animation_controller.SetInteger("state",2);
 			ret[element]=walk_dir.UP;
 			element++;
 		}
 		if(Input.GetKey(KeyCode.D))
 		{
+			animation_controller.SetInteger("state",1);
 			ret[element]=walk_dir.RIGHT;
 			element++;
 		}
 		if(Input.GetKey(KeyCode.S))
 		{
+			animation_controller.SetInteger("state",0);
 			ret[element]=walk_dir.DOWN;
 			element++;
 		}
