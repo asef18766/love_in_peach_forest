@@ -35,7 +35,7 @@ public class Entity_ : MonoBehaviour {
 	}
 	void talk()
 	{
-		if(Input.GetKeyDown(KeyCode.Z))
+		if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.X))
 			interactable_NPC[cur_npc_index].interact();
 	}
 	void spirite_update()
@@ -135,7 +135,7 @@ public class Entity_ : MonoBehaviour {
 					case "npc":
 						//Debug.Log("let's having talk.");
 						indicator.transform.position=r[u].transform.position;
-						if(Input.GetKeyDown(KeyCode.Z))
+						if(Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.X))
 						{
 							cur_npc_index=findNearestNPC();
 							Debug.Log("interact npc id:"+cur_npc_index);
