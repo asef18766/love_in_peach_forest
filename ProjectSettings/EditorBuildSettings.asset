@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/start.unity
+    guid: 17e072056f36b4c15a4bf64cbca647c7
+  - enabled: 1
+    path: Assets/unity_love_in_peach_forest.unity
+    guid: d9aa5a85c877df5468d7c133bb5c2ae2

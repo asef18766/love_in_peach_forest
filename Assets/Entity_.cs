@@ -7,7 +7,8 @@ public class Entity_ : MonoBehaviour {
 	public float detect_radius=40;
 	int cur_npc_index=0;
 	public GameObject indicator;
-	Transform tf;
+    public Inventory_ inv;
+    Transform tf;
 	Vector2 moving_dir;
 	public enum  walk_dir{UP,DOWN,LEFT,RIGHT};
 	Npc_[] interactable_NPC;
@@ -35,6 +36,11 @@ public class Entity_ : MonoBehaviour {
 			talk();
 		
 		spirite_update();
+
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            inv.ShowHide(this);
+        }
 	}
 	void talk()
 	{
